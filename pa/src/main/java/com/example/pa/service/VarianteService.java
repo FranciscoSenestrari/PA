@@ -31,9 +31,18 @@ public class VarianteService {
             Variante variante = optionalVariante.get();
             variante.setNombre(varianteActualizada.getNombre());
             variante.setActivo(varianteActualizada.isActivo());
-            return varianteRepository.save(variante);
+             
+        // Actualiza el stock solo si el valor en varianteActualizada es distinto de cero
+        int nuevoStock = varianteActualizada.getStock();
+        if (nuevoStock >= 0) { // Asegura que el stock no sea negativo
+            variante.setStock(nuevoStock);
         } else {
-            throw new RuntimeException("Variante no encontrada");
+            throw new RuntimeException("El stock no puede ser negativo");
+        }
+        
+        return varianteRepository.save(variante);
+    } else {
+        throw new RuntimeException("Variante no encontrada");
         }
     }
 

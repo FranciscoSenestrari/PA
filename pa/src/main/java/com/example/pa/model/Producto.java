@@ -34,7 +34,8 @@ public class Producto {
 
     private boolean activo=true; //Indicador del Producto (Activo/Inactivo)
 
-    private int umbralStockBajo;
+    @Min(value = 0, message = "El umbral de stock bajo debe ser mayor o igual a 0.")
+    private int UmbralStockBajo;
 
     //Almacenamiento de URLs de las imágenes del producto
     @ElementCollection
@@ -48,7 +49,7 @@ public class Producto {
     @ManyToOne
     @JoinColumn(name = "marca_id")
     private Marca Marca;
-
+    
     @ManyToOne
     @JoinColumn(name = "subcategoria_id")
     private SubCategoria subcategoria;
@@ -57,8 +58,28 @@ public class Producto {
     private List<Variante> variantes;
 
 
-//Getter 
 
+    //constructor
+
+    public Producto(Long id, String nombre, String descripcion, @Min(0) double precio, String sku, int stock,
+            boolean activo, int umbralStockBajo, List<String> imagenes, Categoria categoria,
+            com.example.pa.model.Marca marca, SubCategoria subcategoria, List<Variante> variantes) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.sku = sku;
+        this.stock = stock;
+        this.activo = activo;
+        this.UmbralStockBajo = umbralStockBajo;
+        this.imagenes = imagenes;
+        this.categoria = categoria;
+        Marca = marca;
+        this.subcategoria = subcategoria;
+        this.variantes = variantes;
+    }
+
+    //Getter 
     public Long getId() {
         return id;
     }
@@ -95,16 +116,12 @@ public class Producto {
         return categoria;
     }
 
-    public SubCategoria getSubcategoria() {
-        return subcategoria;
-    }
-
     public List<Variante> getVariantes() {
         return variantes;
     }
 
     public int getUmbralStockBajo() {
-        return umbralStockBajo;
+        return UmbralStockBajo;
     }
 
 
@@ -146,15 +163,29 @@ public class Producto {
         this.categoria = categoria;
     }
 
-    public void setSubcategoria(SubCategoria subcategoria) {
-        this.subcategoria = subcategoria;
-    }
-
     public void setVariantes(List<Variante> variantes) {
         this.variantes = variantes;
     }
   
     public void setUmbralStockBajo(int umbralStockBajo) {
-        this.umbralStockBajo = umbralStockBajo;
+        this.UmbralStockBajo = umbralStockBajo;
     }
+
+    public Marca getMarca() {
+        return Marca;
+    }
+
+    public void setMarca(Marca marca) {
+        Marca = marca;
+    }
+
+    public SubCategoria getSubcategoria() {
+        return subcategoria;
+    }
+
+    public void setSubcategoria(SubCategoria subcategoria) {
+        this.subcategoria = subcategoria;
+    }
+
+    
 }

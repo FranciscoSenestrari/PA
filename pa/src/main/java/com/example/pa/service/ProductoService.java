@@ -17,6 +17,13 @@ public class ProductoService {
     // Repositorio para manejar productos
     private ProductoRepository productoRepository;
 
+    @Autowired
+    private StockService stockService;
+
+    // Listado de Productos
+    public List<Producto> listarProductos() {
+        return productoRepository.findAll();
+    }
    
     //Listado de Productos Activos(True)
     public List<Producto> listarProductosActivos() {
@@ -25,6 +32,7 @@ public class ProductoService {
     
     //Creacion de un Nuevo Producto
     public Producto crearProducto(Producto producto) {
+        stockService.verificarStock(); // Verificar después de crear
         return productoRepository.save(producto);
     }
 
@@ -38,10 +46,10 @@ public class ProductoService {
             producto.setDescripcion(productoActualizado.getDescripcion());
             producto.setPrecio(productoActualizado.getPrecio());
             producto.setCategoria(productoActualizado.getCategoria());
-            producto.setSubcategoria(productoActualizado.getSubcategoria());
             producto.setImagenes(productoActualizado.getImagenes());
             producto.setStock(productoActualizado.getStock());
             producto.setActivo(productoActualizado.isActivo());// Actualiza Estado (Activo)
+            stockService.verificarStock(); // Verificar después de actualizar
             return productoRepository.save(producto);// Guarda el producto actualizado
         } else {
             throw new RuntimeException("Producto no encontrado");

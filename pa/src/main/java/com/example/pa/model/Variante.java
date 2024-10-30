@@ -16,9 +16,9 @@ public class Variante {
 
     private String nombre;
     
-    private String color;
+    private String Tipo; // "Talla" , "Color"
 
-    private String talla;
+    private String Valor; // "M" , "Rojo"
 
     private int stock;
 
@@ -40,11 +40,11 @@ public class Variante {
     }
 
     public String getColor() {
-        return color;
+        return Tipo;
     }
 
     public String getTalla() {
-        return talla;
+        return Valor;
     }
 
     public int getStock() {
@@ -65,12 +65,12 @@ public class Variante {
         this.id = id;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setColor(String Tipo) {
+        this.Tipo = Tipo;
     }
 
-    public void setTalla(String talla) {
-        this.talla = talla;
+    public void setTalla(String Valor) {
+        this.Valor = Valor;
     }
 
     public void setStock(int stock) {

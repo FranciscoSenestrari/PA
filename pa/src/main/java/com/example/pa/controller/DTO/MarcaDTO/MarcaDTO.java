@@ -8,13 +8,16 @@ public class MarcaDTO {
     private Long id;
     private String nombre;
     private String descripcion;
-   
-   //Constructor
+    private boolean activo = true; //Indicador de Categoria (Activa/Inactiva)
+
+    //Contructor
     public MarcaDTO(Long id, String nombre, String descripcion, boolean activo) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.activo = activo;
     }
+
 
     public Long getId() {
         return id;
@@ -39,5 +42,4 @@ public class MarcaDTO {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
 }
