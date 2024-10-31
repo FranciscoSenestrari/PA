@@ -31,6 +31,7 @@ public class VarianteService {
             Variante variante = optionalVariante.get();
             variante.setNombre(varianteActualizada.getNombre());
             variante.setActivo(varianteActualizada.isActivo());
+
              
         // Actualiza el stock solo si el valor en varianteActualizada es distinto de cero
         int nuevoStock = varianteActualizada.getStock();
@@ -78,5 +79,10 @@ public class VarianteService {
     public Variante findById(Long id) {
         
         throw new UnsupportedOperationException("Unimplemented method 'findById'");
+    }
+
+    public void actualizarVariante(Long id, int cantidad) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'actualizarVariante'");
     }
 }

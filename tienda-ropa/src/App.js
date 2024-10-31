@@ -1,18 +1,31 @@
-// src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ProductosMan from './Pages/ProductosMan';
-import Home from './Pages/Home'; // Supón que esta es otra página principal
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import ProductManagement from './pages/admin/ProductManagement';
+import StockManagement from './pages/admin/StockManagement';
+import HomePage from './pages/client/HomePage';
+import ProductDetail from './pages/client/ProductDetail';
+import Cart from './pages/client/Cart';
+import Checkout from './pages/client/Checkout';
 
-const App = () => {
+function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} /> {/* Página principal */}
-        <Route path="/productos" element={<ProductosMan />} /> {/* Gestión de productos */}
+        {/* Rutas para el administrador */}
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/admin/products" element={<ProductManagement />} />
+        <Route path="/admin/stock" element={<StockManagement />} />
+
+        {/* Rutas para el cliente */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </Router>
   );
-};
+}
 
 export default App;
+

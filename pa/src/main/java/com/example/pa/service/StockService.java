@@ -36,4 +36,9 @@ public class StockService {
         // Implementar la lógica para enviar la alerta
         System.out.println("Alerta: El stock de " + producto.getNombre() + " está bajo. Stock actual: " + producto.getStock());
     }
+
+    public void registrarAjusteStock(Long productoId, Integer cantidadAjustada, String razonAjuste) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'registrarAjusteStock'");
+    }
 }
