@@ -14,11 +14,13 @@ public class Variante {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nombre;
+    private String Color; //Rojo , Negro, Gris, etc
     
-    private String Tipo; // "Talla" , "Color"
+    private String Talle; // S, M, L, XL, XXL, ETC
 
-    private String Valor; // "M" , "Rojo"
+    private String Material; // Algodon, Friza, etc
+
+    private String Estilo; // Urbano, Deportivo, Etc
 
     private int stock;
 
@@ -28,65 +30,72 @@ public class Variante {
     @JoinColumn(name = "producto_id")
     private Producto producto;
 
-    
-
-    // Getters
+    //getter and Setter
     public Long getId() {
         return id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getColor() {
-        return Tipo;
+        return Color;
     }
 
-    public String getTalla() {
-        return Valor;
+    public void setColor(String color) {
+        Color = color;
+    }
+
+    public String getTalle() {
+        return Talle;
+    }
+
+    public void setTalle(String talle) {
+        Talle = talle;
+    }
+
+    public String getMaterial() {
+        return Material;
+    }
+
+    public void setMaterial(String material) {
+        Material = material;
+    }
+
+    public String getEstilo() {
+        return Estilo;
+    }
+
+    public void setEstilo(String estilo) {
+        Estilo = estilo;
     }
 
     public int getStock() {
         return stock;
     }
 
-    public boolean isActivo() {
-        return activo;
-    }
-
-    public Producto getProducto() {
-        return producto;
-    }
-
-
-    // Setters
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setColor(String Tipo) {
-        this.Tipo = Tipo;
-    }
-
-    public void setTalla(String Valor) {
-        this.Valor = Valor;
-    }
-
     public void setStock(int stock) {
         this.stock = stock;
     }
 
-    public void setProducto(Producto producto) {
-        this.producto = producto;
+    public boolean isActivo() {
+        return activo;
     }
 
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public Producto getProducto() {
+        return producto;
     }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+
     
+
+      
 }

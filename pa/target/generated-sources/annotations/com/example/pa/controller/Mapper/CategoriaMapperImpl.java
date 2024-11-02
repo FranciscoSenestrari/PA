@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-10-29T23:37:45-0300",
-    comments = "version: 1.6.2, compiler: Eclipse JDT (IDE) 3.40.0.v20240919-1711, environment: Java 17.0.12 (Eclipse Adoptium)"
+    date = "2024-11-02T19:16:26-0300",
+    comments = "version: 1.6.2, compiler: Eclipse JDT (IDE) 3.40.0.z20241023-1306, environment: Java 17.0.13 (Eclipse Adoptium)"
 )
 @Component
 public class CategoriaMapperImpl implements CategoriaMapper {
@@ -19,15 +19,15 @@ public class CategoriaMapperImpl implements CategoriaMapper {
             return null;
         }
 
+        boolean activo = false;
         Long id = null;
         String nombre = null;
-        String descripcion = null;
-        boolean activo = false;
 
+        activo = categoria.isActivo();
         id = categoria.getId();
         nombre = categoria.getNombre();
-        descripcion = categoria.getDescripcion();
-        activo = categoria.isActivo();
+
+        String descripcion = null;
 
         CategoriaDTO categoriaDTO = new CategoriaDTO( id, nombre, descripcion, activo );
 
@@ -40,17 +40,11 @@ public class CategoriaMapperImpl implements CategoriaMapper {
             return null;
         }
 
-        Long id = null;
-        String nombre = null;
-        String descripcion = null;
-        boolean activo = false;
+        Categoria categoria = new Categoria();
 
-        id = categoriaDTO.getId();
-        nombre = categoriaDTO.getNombre();
-        descripcion = categoriaDTO.getDescripcion();
-        activo = categoriaDTO.isActivo();
-
-        Categoria categoria = new Categoria( id, nombre, descripcion, activo );
+        categoria.setActivo( categoriaDTO.isActivo() );
+        categoria.setId( categoriaDTO.getId() );
+        categoria.setNombre( categoriaDTO.getNombre() );
 
         return categoria;
     }

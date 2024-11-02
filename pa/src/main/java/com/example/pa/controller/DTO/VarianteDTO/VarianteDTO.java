@@ -15,11 +15,13 @@ public class VarianteDTO {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nombre;
+    private String Color;
     
-    private String color;
+    private String Talle;
 
-    private String talla;
+    private String Material;
+    
+    private String Estilo;
 
     private int stock;
 
@@ -29,76 +31,83 @@ public class VarianteDTO {
     @JoinColumn(name = "producto_id")
     private Producto producto;
 
-    
     //Constructor
-    public VarianteDTO(Long id, String nombre, String color, String talla, int stock, boolean activo,
+    public VarianteDTO(Long id, String color, String talle, String material, String estilo, int stock, boolean activo,
             Producto producto) {
         this.id = id;
-        this.nombre = nombre;
-        this.color = color;
-        this.talla = talla;
+        Color = color;
+        Talle = talle;
+        Material = material;
+        Estilo = estilo;
         this.stock = stock;
         this.activo = activo;
         this.producto = producto;
     }
 
-    // Getters
+    //Getter and Setter
     public Long getId() {
         return id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getColor() {
-        return color;
+        return Color;
     }
 
-    public String getTalla() {
-        return talla;
+    public void setColor(String color) {
+        Color = color;
+    }
+
+    public String getTalle() {
+        return Talle;
+    }
+
+    public void setTalle(String talle) {
+        Talle = talle;
+    }
+
+    public String getMaterial() {
+        return Material;
+    }
+
+    public void setMaterial(String material) {
+        Material = material;
+    }
+
+    public String getEstilo() {
+        return Estilo;
+    }
+
+    public void setEstilo(String estilo) {
+        Estilo = estilo;
     }
 
     public int getStock() {
         return stock;
     }
 
-    public boolean isActivo() {
-        return activo;
-    }
-
-    public Producto getProducto() {
-        return producto;
-    }
-
-
-    // Setters
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public void setTalla(String talla) {
-        this.talla = talla;
-    }
-
     public void setStock(int stock) {
         this.stock = stock;
     }
 
-    public void setProducto(Producto producto) {
-        this.producto = producto;
+    public boolean isActivo() {
+        return activo;
     }
 
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public Producto getProducto() {
+        return producto;
     }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+
     
 }

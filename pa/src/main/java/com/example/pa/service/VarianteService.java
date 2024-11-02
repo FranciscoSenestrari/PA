@@ -29,7 +29,10 @@ public class VarianteService {
         Optional<Variante> optionalVariante = varianteRepository.findById(id);
         if (optionalVariante.isPresent()) {
             Variante variante = optionalVariante.get();
-            variante.setNombre(varianteActualizada.getNombre());
+            variante.setColor(varianteActualizada.getColor());
+            variante.setTalle(varianteActualizada.getTalle());
+            variante.setMaterial(varianteActualizada.getMaterial());
+            variante.setEstilo(varianteActualizada.getEstilo());
             variante.setActivo(varianteActualizada.isActivo());
 
              

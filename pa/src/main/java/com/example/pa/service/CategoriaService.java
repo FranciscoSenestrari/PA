@@ -44,7 +44,6 @@ public class CategoriaService {
         Optional<Categoria> categoriaOpt = categoriaRepository.findById(id);
         if (categoriaOpt.isPresent()) {
             Categoria categoria = categoriaOpt.get();
-            categoria.setActivo(false);
             categoriaRepository.save(categoria);
         }
     }
@@ -53,7 +52,6 @@ public class CategoriaService {
         Optional<Categoria> categoriaOpt = categoriaRepository.findById(id);
         if (categoriaOpt.isPresent()) {
             Categoria categoria = categoriaOpt.get();
-            categoria.setActivo(false);
             categoriaRepository.save(categoria);
         }
     }

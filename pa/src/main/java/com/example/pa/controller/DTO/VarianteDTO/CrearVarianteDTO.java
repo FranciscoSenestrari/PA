@@ -2,17 +2,16 @@ package com.example.pa.controller.DTO.VarianteDTO;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 
 public class CrearVarianteDTO {
     
-    @NotNull(message = "El nombre no puede estar vacío.")
-    @Size(min = 2, max = 100, message = "El nombre debe tener entre 2 y 100 caracteres.")
-    private String nombre;
+    private String Material;
+
+    private String Estilo;
    
-   private String color;
+    private String Color;
    
-    private String talla;
+    private String Talle;
 
     @Min(value = 0, message = "El stock debe ser mayor o igual a 0.")
     private int stock;
@@ -22,9 +21,62 @@ public class CrearVarianteDTO {
     @NotNull(message = "El producto no puede estar vacío.")
     private Long productoId;
 
-    // Método para verificar si todos los campos están vacíos
-    public boolean isEmpty() {
-        return nombre == null && color == null && talla == null && stock == 0 && activo == null && productoId == null;
+    public String getMaterial() {
+        return Material;
     }
 
+    public void setMaterial(String material) {
+        Material = material;
+    }
+
+    public String getEstilo() {
+        return Estilo;
+    }
+
+    public void setEstilo(String estilo) {
+        Estilo = estilo;
+    }
+
+    public String getColor() {
+        return Color;
+    }
+
+    public void setColor(String color) {
+        Color = color;
+    }
+
+    public String getTalle() {
+        return Talle;
+    }
+
+    public void setTalle(String talle) {
+        Talle = talle;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public Boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
+    }
+
+    public Long getProductoId() {
+        return productoId;
+    }
+
+    public void setProductoId(Long productoId) {
+        this.productoId = productoId;
+    }
+
+
+    
 }
